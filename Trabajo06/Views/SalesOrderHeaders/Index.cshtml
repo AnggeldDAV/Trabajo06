@@ -1,0 +1,196 @@
+﻿@model Paginacion<Trabajo06.Models.SalesOrderHeader>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().RevisionNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().OrderDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().DueDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().ShipDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().OnlineOrderFlag)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().SalesOrderNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().PurchaseOrderNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().AccountNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().CustomerId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().SalesPersonId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().TerritoryId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().BillToAddressId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().ShipToAddressId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().ShipMethodId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().CreditCardId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().CreditCardApprovalCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().CurrencyRateId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().SubTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().TaxAmt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Freight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().TotalDue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Comment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Rowguid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().ModifiedDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RevisionNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DueDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShipDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OnlineOrderFlag)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalesOrderNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PurchaseOrderNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalesPersonId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TerritoryId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BillToAddressId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShipToAddressId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShipMethodId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreditCardId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreditCardApprovalCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CurrencyRateId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaxAmt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Freight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalDue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rowguid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedDate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SalesOrderId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SalesOrderId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SalesOrderId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Index"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @prevDisabled">
+    Previous
+</a>
+<a asp-action="Index"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @nextDisabled">
+    Next
+</a>
