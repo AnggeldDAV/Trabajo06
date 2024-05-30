@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace Trabajo06.Models
+namespace Trabajo06.Services
 {
     public class Paginacion<T> : List<T>
     {

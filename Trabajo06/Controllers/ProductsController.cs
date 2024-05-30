@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Trabajo06.Models;
+using Trabajo06.Services;
 
 namespace Trabajo06.Controllers
 {
